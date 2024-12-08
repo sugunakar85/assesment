@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Sample questions
 const questions = [
-  { question: "Identify the cell organelle?", options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"], correct: 1, image: "images/mitochondria.png" },
+  { question: "Identify the cell organelle?", options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"], correct: 1, image: "mitochondria.png" },
   { question: "What is the capital of France?", options: ["Berlin", "Madrid", "Paris", "Rome"], correct: 2, image: null },
   { question: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], correct: 1, image: null },
 ];
