@@ -20,6 +20,9 @@ const questions = [
   { question: "Identify the cell organelle?", options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"], correct: 1, image: "mitochondria.png" },
   { question: "What is the capital of France?", options: ["Berlin", "Madrid", "Paris", "Rome"], correct: 2, image: null },
   { question: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], correct: 1, image: null },
+  { question: "Which planet is known as the gaint Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], correct: 3, image: null },
+  { question: "Mr. Ravi Kumar, a 55-year-old male, arrives at the Emergency Department with severe chest pain radiating to the left arm and jaw for the past 2 hours. He appears anxious, diaphoretic (sweating profusely), and breathless. His medical history includes long-standing hypertension and smoking. Vitals show BP: 160/95 mmHg, HR: 98 bpm. An ECG reveals ST-segment elevation in leads II, III, and aVF, and a positive Troponin I confirms myocardial injury. Immediate treatment is initiated to reduce further cardiac damage and improve outcomes.",
+   options: ["Administer Aspirin", "Oral analgesics ", "Oxygen, Nitroglycerin, Morphine, and prepare for PC", "Start antibiotics and IV fluids"], correct: 3, image: null },
 ];
 
 let currentQuestionIndex = 0;
