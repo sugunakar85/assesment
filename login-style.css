@@ -1,120 +1,117 @@
-
-/* Navbar styling */
-.navbar {
-  background-color: #333;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-.navbar-menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.navbar-menu li {
-  display: inline-block;
-}
-
-.navbar-menu a {
-  display: block;
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-.navbar-menu a:hover {
-  background-color: #575757;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 160px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: white;
-  padding: 12px;
-  text-decoration: none;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.banner {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.scaled-image {
-  width: 100%;
-  height: auto;
-  max-height: 600px; /* Adjust this value for the banner height */
-  object-fit: cover; /* Ensures the image covers the banner space without distortion */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for visual effect */
-  margin-bottom: 20px;
-}
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-.home-page {
-  text-align: center;
-  padding: 20px;
-  color: black;
+/* Banner Styling */
+.banner {
+    width: 100%;
+    overflow: hidden;
 }
 
-.chapters-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 20px;
-  justify-items: center;
-  margin: 20px auto;
-  max-width: 800px; /* Adjust this as needed */
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.chapter-btn, .topic-btn, .back-btn {
-  background-color:rgb( 10, 96,254);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 150px; /* Fixed width for a uniform look */
+/* Login Container */
+.login-container {
+    background: #fff;
+    padding: 2rem;
+    margin: 2rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.chapter-btn:hover, .topic-btn:hover, .back-btn:hover {
-  background-color: darkred;
+.login-title {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.8rem;
 }
 
-.hidden {
-  display: none;
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
 }
 
-#topics-container {
-  margin-top: 20px;
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
 }
 
-.back-btn {
-  display: block;
-  margin: 20px auto;
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
 }
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.login-button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.signup-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+    .login-title {
+        font-size: 1.5rem;
+    }
+}
+
