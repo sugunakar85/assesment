@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Sample questions
 const questions = [
-  { question: "Identify the cell organelle?", options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"], correct: 1, image: "images/mitochondria.png" },
-  { question: "What is the capital of France?", options: ["Berlin", "Madrid", "Paris", "Rome"], correct: 2, image: null },
-  { question: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], correct: 1, image: null },
-  { question: "Which planet is known as the gaint Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], correct: 3, image: null },
-  { question: "Mr. Ravi Kumar, a 55-year-old male, arrives at the Emergency Department with severe chest pain radiating to the left arm and jaw for the past 2 hours. He appears anxious, diaphoretic (sweating profusely), and breathless. His medical history includes long-standing hypertension and smoking. Vitals show BP: 160/95 mmHg, HR: 98 bpm. An ECG reveals ST-segment elevation in leads II, III, and aVF, and a positive Troponin I confirms myocardial injury. Immediate treatment is initiated to reduce further cardiac damage and improve outcomes.",
-   options: ["Administer Aspirin", "Oral analgesics ", "Oxygen, Nitroglycerin, Morphine, and prepare for PC", "Start antibiotics and IV fluids"], correct: 3, image: null },
+  { question: "Identify the Graph?", options: ["ECG", "Spirogram", "Pacemaker potential", "Muscle Action potential"], correct: 2, image: "images/Pacemaker.png" },
+  { question: "Following is the property of cardiac muscle ?", options: ["Fatigue", "Tetanus", "Tonicity", "Autorhythmisity"], correct: 3, image: null },
+  { question: "CPR is intiated during ?", options: ["Cardiac and respiratory failure", "Renal failure", "Brain death", "Epilepsy"], correct: 0, image: null },
+  { question: "The term 'normal sinus rhythm' is used for ", options: ["Tachycardia", "Bradycardia", "Normal heart rate", "Ventricular fibrilation"], correct: 2, image: null },
+  { question: "A male subject states that he had been standing in line for about 30 minutes in a crowded, hot environment. He began feeling increasingly dizzy, lightheaded, and nauseous, with associated sweating and palpitations. He remembers experiencing blurred vision and muffled hearing just before he 'blacked out'.According to bystanders, he slumped to the ground but regained consciousness within 10-15 seconds without any seizure-like activity. After regaining consciousness, he felt weak and fatigued but otherwise oriented. No injuries were reported.  He denies any chest pain, shortness of breath, or tongue biting during the event. There is no history of incontinence. DIAGNOSIS: ECG normal, Orthostatic hypotension What could be the cause of the symptoms? ",
+   options: ["Vasovagal syncope", "Angina pectoris ", "Myocardial infraction", "Seizures"], correct: 0, image: null },
 ];
 
 let currentQuestionIndex = 0;
