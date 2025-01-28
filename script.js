@@ -1,39 +1,40 @@
 let studentResponses = [];
 let selectedStation = null;
+let isStationLocked = false; // Flag to track if station selection is locked
 
 // Station data with questions and options
-// To add a new station, follow the format:
-// "StationNumber": { question: "Question Text", options: ["Option1", "Option2", ...] }
 const stationData = {
     "1": { question: "Describe the cardiovascular examination procedure.", options: ["Check pulse rate", "Listen to heart sounds", "Examine jugular venous pressure", "Assess peripheral pulses", "Measure blood pressure", "Testing extra question"] },
     "2": { question: "Explain the respiratory system examination steps.", options: ["Inspect chest symmetry", "Percuss chest wall", "Auscultate lung sounds", "Measure respiratory rate", "Assess for cyanosis"] },
     "3": { question: "Detail the steps for abdominal examination.", options: ["Inspect abdomen contour", "Palpate for tenderness", "Percuss liver span", "Check for hernias", "Auscultate bowel sounds"] },
     "4": { question: "Discuss the neurological examination process.", options: ["Assess cranial nerves", "Evaluate muscle strength", "Test reflexes", "Check coordination", "Examine sensory function"] },
-    // Corrected station 5 format
-    "5": { question: "Discuss the functions of cranial nerves.", options: ["Trigeminal nerve", "Oculomotor nerve", "Trochlear nerve", "Abducens nerve","optic nerve"] },
-    "6": { question: "Discuss the motor system.", options: ["bulk of the muscle", "tone of the muscle", "formatative acessment ","deep tendon reflexes"]}
+    "5": { question: "Discuss the functions of cranial nerves.", options: ["Trigeminal nerve", "Oculomotor nerve", "Trochlear nerve", "Abducens nerve", "optic nerve"] },
+    "6": { question: "Discuss the motor system.", options: ["bulk of the muscle", "tone of the muscle", "formatative assessment", "deep tendon reflexes"] }
 };
 
 function startOSCE() {
     const studentId = document.getElementById("student-id").value.trim();
     const stationButtons = document.querySelectorAll("input[name='station']");
     
-    // Check if station is selected
-    selectedStation = null;
-    for (const button of stationButtons) {
-        if (button.checked) {
-            selectedStation = button.value;
-            break;
+    if (!selectedStation) {
+        for (const button of stationButtons) {
+            if (button.checked) {
+                selectedStation = button.value;
+                break;
+            }
         }
+
+        if (!selectedStation) {
+            alert("Please select a station.");
+            return;
+        }
+
+        isStationLocked = true;
+        document.getElementById("station-selection").style.display = "none";
     }
 
     if (!studentId) {
         alert("Please enter Student ID.");
-        return;
-    }
-
-    if (!selectedStation) {
-        alert("Please select a station.");
         return;
     }
 
@@ -63,14 +64,16 @@ function loadQuestion(station) {
 }
 
 function nextStudent() {
+    const studentId = document.getElementById("student-id").value.trim();
+    if (!studentId) {
+        alert("Please enter Student ID before proceeding.");
+        return;
+    }
+
     recordResponse();
 
     document.getElementById("student-id").value = "";
     document.getElementById("question-section").innerHTML = "";
-    document.querySelectorAll("input[name='station']").forEach(button => button.checked = false);
-    
-    // Reset the selected station for the next student
-    selectedStation = null;
 
     document.getElementById("login-screen").style.display = "block";
     document.getElementById("question-screen").style.display = "none";
@@ -117,8 +120,14 @@ function promptFacultyDetails() {
 }
 
 function saveSummaryReport(facultyName) {
-    let csvContent = "Student ID,Score,Selected Options,Unselected Options\n";
+    // Sort studentResponses by studentId in ascending numerical order
+    studentResponses.sort((a, b) => {
+        const idA = parseInt(a.studentId, 10);
+        const idB = parseInt(b.studentId, 10);
+        return idA - idB;
+    });
 
+    let csvContent = "studentID,score,Selected Options,Unselected Options\n";
     studentResponses.forEach(response => {
         csvContent += `${response.studentId},${response.score},"${response.selectedOptions.join(", ")}","${response.unselectedOptions.join(", ")}"\n`;
     });
@@ -128,8 +137,14 @@ function saveSummaryReport(facultyName) {
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = `Station_${selectedStation}_Summary_Report_${sanitizedFacultyName}.csv`;
+
+    isStationLocked = true;
     link.click();
-    
+
+    link.addEventListener("click", () => {
+        isStationLocked = false;
+    });
+
     studentResponses = [];
 }
 
