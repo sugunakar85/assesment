@@ -1,0 +1,69 @@
+/* Reset body margin to avoid unexpected spacing */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1.5em;
+    background-color: #007acc;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px; /* Set a fixed height for the navbar */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 30px; /* Set a consistent logo height */
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5em; /* Space between each nav link */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f0f0f0;
+}
+
+/* Content padding to avoid overlap with fixed navbar */
+.content {
+    padding-top: 70px; /* Adjust this based on navbar height */
+}
+

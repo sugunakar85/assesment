@@ -1,43 +1,52 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login to Quiz</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
-    input, button { margin: 10px; padding: 10px; font-size: 1rem; }
-  </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>OSCE Station</title>
+                <link rel="stylesheet" href="navbar.css">
+                    <link rel="stylesheet" href="styles.css">
+                    
+    </head>
 <body>
-    <div class="banner">
-            <img src="bannerx.png" alt="Banner Image" class="banner-image">
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="image1.jpg" alt="Logo"> Dr. Sugunakar
+        </a>
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about/about.html">About</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-  <h1>Welcome to online assesment</h1>
-  <form id="login-form">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" required><br><br>
+    </nav>
+  <div id="login-screen" class="screen">
+    <h2>Login</h2>
+    <label for="student-id">Student ID:</label>
+    <input type="text" id="student-id" required><br>
+    <h3>Select Station:</h3>
+    <label><input type="radio" name="station" value="1"> Station 1</label><br>
+    <label><input type="radio" name="station" value="2"> Station 2</label><br>
+    <label><input type="radio" name="station" value="3"> Station 3</label><br>
+    <label><input type="radio" name="station" value="4"> Station 4</label><br>
+    <label><input type="radio" name="station" value="5"> Station 5</label><br>
+    <label><input type="radio" name="station" value="6"> Station 6</label><br>
+    <button onclick="startOSCE()">Start OSCE</button>
+  </div>
 
-    <label for="id">ID:</label><br>
-    <input type="text" id="id" required><br><br>
+  <div id="question-screen" class="screen" style="display: none;">
+    <h2>OSCE Station - <span id="display-station"></span></h2>
+    <p>Student ID: <span id="display-student-id"></span></p>
+    <div id="question-section">
+      <!-- Question and options will be injected here -->
+    </div>
+    <button onclick="nextStudent()">Next Student</button>
+    <button onclick="promptFacultyDetails()">Save Detailed Report</button>
+  </div>
 
-    <button type="submit">Start Quiz</button>
-  </form>
-
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const id = document.getElementById('id').value;
-
-      if (name && id) {
-        const url = `quiz.html?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}`;
-        window.location.href = url;
-      } else {
-        alert("Please enter both Name and ID.");
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
