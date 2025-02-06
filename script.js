@@ -4,18 +4,16 @@ let isStationLocked = false; // Flag to track if station selection is locked
 
 // Station data with questions and options
 const stationData = {
-    "1": { question: "Describe the cardiovascular examination procedure.", options: ["Check pulse rate", "Listen to heart sounds", "Examine jugular venous pressure", "Assess peripheral pulses", "Measure blood pressure", "Testing extra question"] },
-    "2": { question: "Explain the respiratory system examination steps.", options: ["Inspect chest symmetry", "Percuss chest wall", "Auscultate lung sounds", "Measure respiratory rate", "Assess for cyanosis"] },
-    "3": { question: "Detail the steps for abdominal examination.", options: ["Inspect abdomen contour", "Palpate for tenderness", "Percuss liver span", "Check for hernias", "Auscultate bowel sounds"] },
-    "4": { question: "Discuss the neurological examination process.", options: ["Assess cranial nerves", "Evaluate muscle strength", "Test reflexes", "Check coordination", "Examine sensory function"] },
-    "5": { question: "Discuss the functions of cranial nerves.", options: ["Trigeminal nerve", "Oculomotor nerve", "Trochlear nerve", "Abducens nerve", "optic nerve"] },
-    "6": { question: "Discuss the motor system.", options: ["bulk of the muscle", "tone of the muscle", "formatative assessment", "deep tendon reflexes"] }
+    "1": { question: "Examiner-1", options: ["+1", "+1", "+1", "+1", "+1","+1", "+1", "+1","+1", "+1", "+1", "+1", "+1", "+1","+1"] },
+    "2": { question: "Examiner-2", options: ["+1", "+1", "+1", "+1", "+1","+1", "+1", "+1", "+1", "+1","+1", "+1", "+1","+1", "+1", "+1", "+1", "+1", "+1","+1"] },
+    "3": { question: "Examiner-3", options: ["+1", "+1", "+1", "+1", "+1","+1", "+1", "+1", "+1", "+1","+1", "+1", "+1", "+1", "+1","+1", "+1", "+1","+1", "+1", "+1", "+1", "+1", "+1","+1"] },
+    "4": { question: "Examiner-4", options: ["+1", "+1", "+1", "+1", "+1","+1", "+1", "+1", "+1", "+1","+1","+1", "+1", "+1", "+1","+1", "+1", "+1", "+1", "+1","+1", "+1", "+1","+1", "+1", "+1", "+1", "+1", "+1","+1"] }
 };
 
 function startOSCE() {
     const studentId = document.getElementById("student-id").value.trim();
     const stationButtons = document.querySelectorAll("input[name='station']");
-    
+
     if (!selectedStation) {
         for (const button of stationButtons) {
             if (button.checked) {
@@ -56,10 +54,20 @@ function loadQuestion(station) {
     }
 
     const questionHTML = `<p>${stationInfo.question}</p>`;
-    const optionsHTML = stationInfo.options.map(
-        (option, index) => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label><br>`
-    ).join("");
-    
+    let optionsHTML = "";
+
+    if (stationInfo.options.length > 5) {
+        optionsHTML = `<div class="grid-options">` +
+            stationInfo.options.map(
+                (option, index) => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label>`
+            ).join("") +
+            `</div>`;
+    } else {
+        optionsHTML = stationInfo.options.map(
+            (option, index) => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label><br>`
+        ).join("");
+    }
+
     questionSection.innerHTML = questionHTML + optionsHTML;
 }
 
@@ -120,12 +128,7 @@ function promptFacultyDetails() {
 }
 
 function saveSummaryReport(facultyName) {
-    // Sort studentResponses by studentId in ascending numerical order
-    studentResponses.sort((a, b) => {
-        const idA = parseInt(a.studentId, 10);
-        const idB = parseInt(b.studentId, 10);
-        return idA - idB;
-    });
+    studentResponses.sort((a, b) => parseInt(a.studentId, 10) - parseInt(b.studentId, 10));
 
     let csvContent = "studentID,score,Selected Options,Unselected Options\n";
     studentResponses.forEach(response => {

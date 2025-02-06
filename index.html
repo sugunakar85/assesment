@@ -29,20 +29,20 @@
         
         <!-- Station selection will be hidden after the first selection -->
         <div id="station-selection">
-            <h3>Select Station:</h3>
-            <label><input type="radio" name="station" value="1"> Station 1</label><br>
-            <label><input type="radio" name="station" value="2"> Station 2</label><br>
-            <label><input type="radio" name="station" value="3"> Station 3</label><br>
-            <label><input type="radio" name="station" value="4"> Station 4</label><br>
-            <label><input type="radio" name="station" value="5"> Station 5</label><br>
-            <label><input type="radio" name="station" value="6"> Station 6</label><br>
+            <h3>Select Examiner number (1-4):</h3>
+            <label><input type="radio" name="station" value="1"> Examiner 1</label><br>
+            <label><input type="radio" name="station" value="2"> Examiner 2</label><br>
+            <label><input type="radio" name="station" value="3"> Examiner 3</label><br>
+            <label><input type="radio" name="station" value="4"> Examiner 4</label><br>
+            
         </div>
         
-        <button onclick="startOSCE()">Start OSCE</button>
+        <button onclick="startOSCE()">Start VIVA</button>
     </div>
 
     <div id="question-screen" class="screen" style="display: none;">
-        <h2>OSCE Station - <span id="display-station"></span></h2>
+        <h2>VIVA Station <span id="display-station"></span></h2>
+        </h3> Number of check boxes selected equal to number of marks (MAXIMUM- 5) </h2>
         <p>Student ID: <span id="display-student-id"></span></p>
         <div id="question-section">
             <!-- Question and options will be injected here -->
@@ -51,7 +51,7 @@
         <button onclick="promptFacultyDetails()">Save Detailed Report</button>
     </div>
 
-    <script src="scriptx.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
