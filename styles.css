@@ -60,8 +60,8 @@ body {
 
 @media (max-width: 768px) {
     .button {
-        width: 120px; /* Adjusted width for smaller screens */
-        height: 120px; /* Adjusted height for smaller screens */
+        width: 170px; /* Adjusted width for smaller screens */
+        height: 170px; /* Adjusted height for smaller screens */
     }
 }
 
