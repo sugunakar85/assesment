@@ -15,7 +15,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 60px; /* Set a fixed height for the navbar */
+    height: 40px; /* Set a fixed height for the navbar */
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 .navbar .logo img {
-    height: 50px; /* Set a consistent logo height */
+    height: 30px; /* Set a consistent logo height */
     margin-right: 10px; /* Space between logo image and text */
 }
 
@@ -64,6 +64,6 @@ body {
 
 /* Content padding to avoid overlap with fixed navbar */
 .content {
-    padding-top: 70px; /* Adjust this based on navbar height */
+    padding-top: 20px; /* Adjust this based on navbar height */
 }
 
