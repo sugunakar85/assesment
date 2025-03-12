@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSCE Station</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-links-container">
+            <!-- Navigation links can be added here if needed -->
+        </div>
+        <a href="#" class="logo">
+            <img src="JVS1.png"> 
+        </a>
+    </nav>
+
+    <div id="login-screen" class="screen">
+        <h2>Login Station - <span id="display-station"></span></h2>
+        <label for="student-id">Student ID:</label>
+        <input type="text" id="student-id" required><br>
+
+        <!-- Station selection will be hidden after the first selection -->
+        <div id="station-selection">
+            <h3>Select Station:</h3>
+            <label><input type="radio" name="station" value="1"> Station 1</label><br>
+            <label><input type="radio" name="station" value="2"> Station 2</label><br>
+            <label><input type="radio" name="station" value="3"> Station 3</label><br>
+            <label><input type="radio" name="station" value="4"> Station 4</label><br>
+        </div>
+
+        <button onclick="startOSCE(); startTimer();">Start OSCE</button>
+        <button class="save-report-btn" onclick="promptFacultyDetails()">Download detailed Report</button>
+    </div>
+
+    <div id="question-screen" class="screen" style="display: none;">
+        <span id="timer">Time: 00:00:00</span>
+        <h2>OSCE Station - Maximum time for selection is 1 min</h2>
+        <p>Student ID: <span id="display-student-id"></span></p>
+        <div id="question-section">
+            <!-- Question and options will be injected here -->
+        </div>
+        <button onclick="nextStudent()">Save & Next Student</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
