@@ -64,6 +64,6 @@ body {
 
 /* Content padding to avoid overlap with fixed navbar */
 .content {
-    padding-top: 20px; /* Adjust this based on navbar height */
+    padding-top: 60px; /* Adjust this based on navbar height */
 }
 
