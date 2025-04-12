@@ -157,7 +157,7 @@ function saveSummaryReport(facultyName) {
 
     studentResponses.sort((a, b) => parseInt(a.studentId, 10) - parseInt(b.studentId, 10));
 
-    let csvContent = "StudentID,Score,Station,Date,Time,Question,Selected Options,Unselected Options,\n";
+    let csvContent = "studentId,score,Station,Date,Time,Question,Selected Options,Unselected Options,\n";
     studentResponses.forEach(response => {
         csvContent += `"${response.studentId}",${response.score},"${response.station}","${response.date}","${response.time}","${response.question}","${response.selectedOptions.join("; ")}","${response.unselectedOptions.join("; ")}"\n`;
     });
