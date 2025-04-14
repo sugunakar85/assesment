@@ -5,16 +5,16 @@ let timerSeconds = 0;
 let timerInterval;
 
 const stationData = {
-    "1": { question: "Demonstrate the communication skill required for recording of blood pressure on a volunteer (5 marks) (Affective domain) ", options: ["Student introduces himself / herself", "Student enquires volunteer details", "Explains the procedure", "Enquires about hypertensive status", "Obtains consent for the procedure"] },
-    "2": { question: "Measure the blood pressure by palpatory method in a systemic manner -(5 marks) (Psychomotor domain)", options: ["Wraps uninflated cuff of sphygmomanometer firmly around the bare upper arm 2.5 - 5cm above the elbow joint at the heart level", "places his /her three middle fingers over the radial artery","Keeps the fore arm in mid prone position", "Inflates the cuff rapidly until the pressure in it is well above the systolic blood pressure", "Deflates the cuff slowly,releasing the pressure at 2 - 3 mm Hg/sec"] },
-    "3": { question: "Perform B.P. recording by ausculatatory method (5 marks )(Psychomotor domain)", options: ["  explain procedure", "To seat the subject appropriately for examination", "placing the cuff", "applying the pressure and placing the steth", "hearing the kortikoff sounds"] },
+    "1": { question: "Demonstrate the communication skill required for recording of blood pressure on a volunteer (5 marks) (Affective domain)", options: ["Student introduces himself / herself", "Student enquires volunteer details", "Explains the procedure", "Enquires about hypertensive status", "Obtains consent for the procedure"] },
+    "2": { question: "Measure the blood pressure by palpatory method in a systemic manner -(5 marks) (Psychomotor domain)", options: ["Wraps uninflated cuff of sphygmomanometer firmly around the bare upper arm 2.5 - 5cm above the elbow joint at the heart level", "places his /her three middle fingers over the radial artery", "Keeps the fore arm in mid prone position", "Inflates the cuff rapidly until the pressure in it is well above the systolic blood pressure", "Deflates the cuff slowly,releasing the pressure at 2 - 3 mm Hg/sec"] },
+    "3": { question: "Perform B.P. recording by ausculatatory method (5 marks )(Psychomotor domain)", options: ["explain procedure", "To seat the subject appropriately for examination", "placing the cuff", "applying the pressure and placing the steth", "hearing the kortikoff sounds"] },
     "4": { question: "Explaining the performed procedures", options: ["Introducing himself / herself", "Explains the procedure performed", "palpatory method", "Auscultatory method", "Normal range and applied aspects"] }
 };
 
 function startOSCE() {
     const studentId = document.getElementById("student-id").value.trim();
     const stationButtons = document.querySelectorAll("input[name='station']");
-    
+
     if (!selectedStation) {
         for (const button of stationButtons) {
             if (button.checked) {
@@ -37,6 +37,16 @@ function startOSCE() {
         return;
     }
 
+    // Check if this studentId already exists
+    const existingIndex = studentResponses.findIndex(resp => resp.studentId === studentId);
+    if (existingIndex !== -1) {
+        const overwrite = confirm(`Student ID "${studentId}" already exists. Do you want to overwrite the existing entry?`);
+        if (!overwrite) return;
+
+        // Remove previous entry
+        studentResponses.splice(existingIndex, 1);
+    }
+
     document.getElementById("display-student-id").textContent = studentId;
     document.getElementById("display-station").textContent = selectedStation;
     loadQuestion(selectedStation);
@@ -49,7 +59,7 @@ function startOSCE() {
 
 function startTimer() {
     clearInterval(timerInterval); // Ensure no previous timer is running
-    let timerSeconds = 60; // Start timer from 30 seconds
+    let timerSeconds = 60; // Start timer from 60 seconds
     const timerDisplay = document.getElementById('timer');
 
     timerInterval = setInterval(() => {
@@ -64,12 +74,12 @@ function startTimer() {
             timerDisplay.style.color = "purple"; // Default color
         }
 
-        if (timerSeconds <= 0) { // Auto-submit when time is up
+        if (timerSeconds <= 0) {
             clearInterval(timerInterval); // Stop timer
             alert("Time's up! Auto-submitting...");
-            nextStudent(); // Automatically submit and proceed
+            nextStudent();
         } else {
-            timerSeconds--; // Decrement timer
+            timerSeconds--;
         }
     }, 1000);
 }
@@ -96,11 +106,11 @@ function nextStudent() {
 
     document.getElementById("student-id").value = "";
     document.getElementById("question-section").innerHTML = "";
-    
+
     document.getElementById("login-screen").style.display = "block";
     document.getElementById("question-screen").style.display = "none";
 
-    document.getElementById("timer").textContent = "Time: 00:00:00"; // Reset timer display
+    document.getElementById("timer").textContent = "Time: 00:00:00";
     clearInterval(timerInterval); // Stop timer
 }
 
@@ -174,4 +184,3 @@ function saveSummaryReport(facultyName) {
 
     alert("Report saved successfully.");
 }
-
