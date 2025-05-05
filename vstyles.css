@@ -1,18 +1,47 @@
+/* Adjust question styling for long text */
+#question-section p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    text-align: justify;
+    color: red;
+}
+
+/* Make options responsive */
+#question-section label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+#question-section input[type="checkbox"],
+#question-section input[type="radio"] {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    #question-section p {
+        font-size: 0.9rem;
+    }
+    
+    #question-section label {
+        font-size: 0.9rem;
+    }
+}
+
 /* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-.grid-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-}
-.grid-options label {
-    display: flex;
-    align-items: center;
 }
 
 /* Body Styling */
@@ -50,7 +79,7 @@ body {
 
 /* Login Screen and Question Screen */
 #login-screen, #question-screen {
-    display: block; /* Ensure the elements are visible */
+    display: block;
     margin-top: 15px;
 }
 
@@ -88,6 +117,32 @@ input[type="text"] {
     background-color: #e2e6ea;
 }
 
+/* ✅ Green color for Save Detailed Report button */
+.save-report-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    border: none;
+}
+
+.save-report-btn:hover {
+    background-color: #218838; /* Darker Green */
+}
+
+/* Timer Styling */
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color:purple
+    transition: color 0.5s ease;
+}
+
 /* Question Section */
 #question-section {
     margin-top: 20px;
@@ -109,7 +164,7 @@ input[type="text"] {
     margin-right: 10px;
 }
 
-/* Buttons */
+/* ✅ General Button Styling */
 button {
     display: inline-block;
     width: 100%;
@@ -161,4 +216,5 @@ button:disabled {
         font-size: 0.9rem;
     }
 }
+
 

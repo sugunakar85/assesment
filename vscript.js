@@ -1,6 +1,8 @@
 let studentResponses = [];
 let selectedStation = null;
-let isStationLocked = false; // Flag to track if station selection is locked
+let isStationLocked = false;
+let timerSeconds = 0;
+let timerInterval;
 
 // Station data with questions and options
 const stationData = {
@@ -36,12 +38,51 @@ function startOSCE() {
         return;
     }
 
+    // Check if this studentId already exists
+    const existingIndex = studentResponses.findIndex(resp => resp.studentId === studentId);
+    if (existingIndex !== -1) {
+        const overwrite = confirm(`Student ID "${studentId}" already exists. Do you want to overwrite the existing entry?`);
+        if (!overwrite) return;
+
+        // Remove previous entry
+        studentResponses.splice(existingIndex, 1);
+    }
+
     document.getElementById("display-student-id").textContent = studentId;
     document.getElementById("display-station").textContent = selectedStation;
     loadQuestion(selectedStation);
 
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("question-screen").style.display = "block";
+
+    startTimer(); // Start timer when OSCE begins
+}
+
+function startTimer() {
+    clearInterval(timerInterval); // Ensure no previous timer is running
+    let timerSeconds = 60; // Start timer from 60 seconds
+    const timerDisplay = document.getElementById('timer');
+
+    timerInterval = setInterval(() => {
+        const minutes = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+        const seconds = String(timerSeconds % 60).padStart(2, '0');
+        timerDisplay.textContent = `Time: 00:${minutes}:${seconds}`;
+
+        // Change color to red in the last 10 seconds
+        if (timerSeconds <= 10) {
+            timerDisplay.style.color = "red";
+        } else {
+            timerDisplay.style.color = "purple"; // Default color
+        }
+
+        if (timerSeconds <= 0) {
+            clearInterval(timerInterval); // Stop timer
+            alert("Time's up! Auto-submitting...");
+            nextStudent();
+        } else {
+            timerSeconds--;
+        }
+    }, 1000);
 }
 
 function loadQuestion(station) {
@@ -54,37 +95,24 @@ function loadQuestion(station) {
     }
 
     const questionHTML = `<p>${stationInfo.question}</p>`;
-    let optionsHTML = "";
-
-    if (stationInfo.options.length > 5) {
-        optionsHTML = `<div class="grid-options">` +
-            stationInfo.options.map(
-                (option, index) => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label>`
-            ).join("") +
-            `</div>`;
-    } else {
-        optionsHTML = stationInfo.options.map(
-            (option, index) => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label><br>`
-        ).join("");
-    }
+    const optionsHTML = stationInfo.options.map(
+        option => `<label><input type="checkbox" class="option" value="${option}"> ${option}</label><br>`
+    ).join("");
 
     questionSection.innerHTML = questionHTML + optionsHTML;
 }
 
 function nextStudent() {
-    const studentId = document.getElementById("student-id").value.trim();
-    if (!studentId) {
-        alert("Please enter Student ID before proceeding.");
-        return;
-    }
-
-    recordResponse();
+    recordResponse(); // Ensure the last response is saved
 
     document.getElementById("student-id").value = "";
     document.getElementById("question-section").innerHTML = "";
 
     document.getElementById("login-screen").style.display = "block";
     document.getElementById("question-screen").style.display = "none";
+
+    document.getElementById("timer").textContent = "Time: 00:00:00";
+    clearInterval(timerInterval); // Stop timer
 }
 
 function recordResponse() {
@@ -114,10 +142,15 @@ function recordResponse() {
         unselectedOptions: unselectedOptions,
         score
     });
+
+    console.log("Recorded Response:", studentResponses);
 }
 
 function promptFacultyDetails() {
-    recordResponse();
+    if (studentResponses.length === 0) {
+        alert("No responses recorded yet.");
+        return;
+    }
 
     const facultyName = prompt("Please enter your name:");
     if (facultyName) {
@@ -128,26 +161,27 @@ function promptFacultyDetails() {
 }
 
 function saveSummaryReport(facultyName) {
+    if (studentResponses.length === 0) {
+        alert("No data available to save.");
+        return;
+    }
+
     studentResponses.sort((a, b) => parseInt(a.studentId, 10) - parseInt(b.studentId, 10));
 
-    let csvContent = "studentID,score,Selected Options,Unselected Options\n";
+    let csvContent = "studentId,score,Station,Date,Time,Question,Selected Options,Unselected Options,\n";
     studentResponses.forEach(response => {
-        csvContent += `${response.studentId},${response.score},"${response.selectedOptions.join(", ")}","${response.unselectedOptions.join(", ")}"\n`;
+        csvContent += `"${response.studentId}",${response.score},"${response.station}","${response.date}","${response.time}","${response.question}","${response.selectedOptions.join("; ")}","${response.unselectedOptions.join("; ")}"\n`;
     });
 
     const sanitizedFacultyName = facultyName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
     const blob = new Blob([csvContent], { type: "text/csv" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `Station_${selectedStation}_Summary_Report_${sanitizedFacultyName}.csv`;
+    link.download = `OSCE_Report_${sanitizedFacultyName}.csv`;
 
-    isStationLocked = true;
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
 
-    link.addEventListener("click", () => {
-        isStationLocked = false;
-    });
-
-    studentResponses = [];
+    alert("Report saved successfully.");
 }
-

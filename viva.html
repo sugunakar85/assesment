@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSCE Station</title>
+    <title>VIVA Station</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="vstyles.css">
 </head>
+
 <body>
     <nav class="navbar">
-        <a href="#" class="logo">
-            <img src="image1.jpg"> Dr. Sugunakar
-        </a>
         <div class="nav-links-container">
-            
+            <!-- Navigation links can be added here if needed -->
         </div>
+        <a href="#" class="logo">
+            <img src="OSCE/JVS1.png">
+        </a>
     </nav>
 
     <div id="login-screen" class="screen">
-        <h2>Login</h2>
-        <label for="student-id">Student Roll No:</label>
+        <h2>Login Station - <span id="display-station"></span></h2>
+        <label for="student-id">Student ID:</label>
         <input type="text" id="student-id" required><br>
-        
+
         <!-- Station selection will be hidden after the first selection -->
         <div id="station-selection">
-            <h3>Select Examiner number (1-4):</h3>
+            <h3>Select EXAMINER:</h3>
             <label><input type="radio" name="station" value="1"> Examiner 1</label><br>
             <label><input type="radio" name="station" value="2"> Examiner 2</label><br>
             <label><input type="radio" name="station" value="3"> Examiner 3</label><br>
             <label><input type="radio" name="station" value="4"> Examiner 4</label><br>
-            
         </div>
-        
-        <button onclick="startOSCE()">Start VIVA</button>
+
+        <button onclick="startOSCE(); startTimer();">Start VIVA</button>
+        <button class="save-report-btn" onclick="promptFacultyDetails()">Download detailed Report</button>
     </div>
 
     <div id="question-screen" class="screen" style="display: none;">
-        <h2>VIVA Station <span id="display-station"></span></h2>
-        </h3> Number of check boxes selected equal to number of marks (MAXIMUM- 5) </h2>
+        <span id="timer">Time: 00:00:00</span>
+        <h2>Viva Station - Maximum time for selection is 1 min</h2>
         <p>Student ID: <span id="display-student-id"></span></p>
         <div id="question-section">
             <!-- Question and options will be injected here -->
         </div>
-        <button onclick="nextStudent()">Next Student</button>
-        <button onclick="promptFacultyDetails()">Save Detailed Report</button>
+        <button onclick="nextStudent()">Save & Next Student</button>
     </div>
 
     <script src="vscript.js"></script>
 </body>
+
 </html>
+
 
