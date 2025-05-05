@@ -1,0 +1,120 @@
+
+/* Navbar styling */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navbar-menu li {
+  display: inline-block;
+}
+
+.navbar-menu a {
+  display: block;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar-menu a:hover {
+  background-color: #575757;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.banner {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.scaled-image {
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* Adjust this value for the banner height */
+  object-fit: cover; /* Ensures the image covers the banner space without distortion */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for visual effect */
+  margin-bottom: 20px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.home-page {
+  text-align: center;
+  padding: 20px;
+  color: black;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 800px; /* Adjust this as needed */
+}
+
+.chapter-btn, .topic-btn, .back-btn {
+  background-color:rgb( 10, 96,254);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px; /* Fixed width for a uniform look */
+}
+
+.chapter-btn:hover, .topic-btn:hover, .back-btn:hover {
+  background-color: darkred;
+}
+
+.hidden {
+  display: none;
+}
+
+#topics-container {
+  margin-top: 20px;
+}
+
+.back-btn {
+  display: block;
+  margin: 20px auto;
+}
