@@ -6,7 +6,7 @@ let timerInterval;
 
 // Station data with questions and options
 const stationData = {
-    "1": { question: "Examiner-1", options: ["+1", "+1", "+1", "+1", "+1"] },
+    "1": { question: "Examiner-1", options: ["+5", "+5", "+5", "+5"] },
     "2": { question: "Examiner-2", options: ["+1", "+1", "+1", "+1", "+1"] },
     "3": { question: "Examiner-3", options: ["+1", "+1", "+1", "+1", "+1"] },
     "4": { question: "Examiner-4", options: ["+1", "+1", "+1", "+1", "+1"] }
@@ -125,7 +125,7 @@ function recordResponse() {
 
     options.forEach(option => {
         if (option.checked) {
-            score += 1;
+            score += 5;
             selections.push(option.value);
         } else {
             unselectedOptions.push(option.value);
