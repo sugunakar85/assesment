@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Multiple choice questions: select any one option</title>
   <link rel="stylesheet" href="quiz-style.css" />
 </head>
 
@@ -15,9 +14,10 @@
 
   <!-- Main Quiz Container -->
   <div id="quiz-container" class="quiz-page">
-    <h1>MCQ Quiz</h1>
+      <div id="timer" style="float: left; font-size: 1rem; color: orange; margin-right: 20px;">00:00:00</div>
+      <h1>Select any one option</h1>
     <p id="user-info"></p>
-
+    
     <!-- File input for Excel file upload -->
     <label for="fileUpload" class="file-upload-label">Upload Quiz File</label>
     <input type="file" id="fileUpload" accept=".xlsx" onchange="loadExcelFile(event)" class="file-upload-input" />
@@ -31,8 +31,7 @@
 
     <!-- Navigation buttons -->
     <div class="button-group">
-      <button id="nextButton" class="btn" style="display:none;" onclick="nextQuestion()">Next</button>
-      <button id="prevButton" class="btn" style="display:none;" onclick="prevQuestion()">Back</button>
+        <button id="nextButton" class="btn" style="display:none;" onclick="nextQuestion(); ">Next</button>
       <button id="submitButton" class="btn" style="display:none;" onclick="submitQuiz()">Submit</button>
     </div>
 
@@ -48,7 +47,7 @@
   <script src="lib/xlsx.full.min.js"></script>
   <script src="lib/jspdf.umd.min.js"></script>
   <script src="quiz.js"></script>
-
+  <script src="timer.js" defer></script>
   <script>
     // Display the username stored in session storage
     const username = sessionStorage.getItem('username');
@@ -60,4 +59,5 @@
   </script>
 </body>
 </html>
+
 

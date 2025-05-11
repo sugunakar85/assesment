@@ -102,10 +102,11 @@ function nextQuestion() {
     }
     userResponses[currentQuestionIndex] = parseInt(selectedOption.value);
     currentQuestionIndex++;
-
+    
     if (currentQuestionIndex < questions.length) {
         loadQuestion(currentQuestionIndex);
     }
+    startTimer();
 }
 
 
@@ -115,9 +116,10 @@ function submitQuiz() {
         alert("Please select an answer before submitting!");
         return;
     }
-
+    
     userResponses[currentQuestionIndex] = parseInt(selectedOption.value);
     displayResults();
+    stopTimer();
 }
 
 
