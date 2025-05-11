@@ -48,8 +48,22 @@ body {
 
 #timer {
   font-size: 1.2rem;
-  color: orange;
+  color: #FFA500; /* Soft orange shade */
   display: block;
+  background-color: #fff7e6; /* Light pastel background */
+  padding: 5px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+#timer:hover {
+  background-color: #ffecb3; /* Slightly brighter on hover */
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
