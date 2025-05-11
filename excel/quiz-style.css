@@ -55,7 +55,8 @@ body {
 h1 {
   color: #333;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 17px;
+  color:red;
   letter-spacing: 1px;
   text-align: center;
 }
