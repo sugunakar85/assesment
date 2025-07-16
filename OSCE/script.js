@@ -6,9 +6,9 @@ let timerInterval;
 
 const stationData = {
     "1": { question: "Demonstrate the communication skill required for recording of blood pressure on a volunteer (5 marks) (Affective domain)", options: ["Student introduces himself / herself", "Student enquires volunteer details", "Explains the procedure", "Enquires about hypertensive status", "Obtains consent for the procedure"] },
-    "2": { question: "Measure the blood pressure by palpatory method in a systemic manner -(5 marks) (Psychomotor domain)", options: ["Wraps uninflated cuff of sphygmomanometer firmly around the bare upper arm 2.5 - 5cm above the elbow joint at the heart level", "places his /her three middle fingers over the radial artery", "Keeps the fore arm in mid prone position", "Inflates the cuff rapidly until the pressure in it is well above the systolic blood pressure", "Deflates the cuff slowly,releasing the pressure at 2 - 3 mm Hg/sec"] },
-    "3": { question: "Perform B.P. recording by ausculatatory method (5 marks )(Psychomotor domain)", options: ["explain procedure", "To seat the subject appropriately for examination", "placing the cuff", "applying the pressure and placing the steth", "hearing the kortikoff sounds"] },
-    "4": { question: "Explaining the performed procedures", options: ["Introducing himself / herself", "Explains the procedure performed", "palpatory method", "Auscultatory method", "Normal range and applied aspects"] }
+    "2": { question: "Perform knee jerk on a volunteer -(5 marks) (Psychomotor domain)", options: ["Introduce himself/herself and explain procedure", "To seat the subject in a appropriate matter", "Locate the patellar tendon", "Strike the patellar tendon midway between orgin and insertion", "Conduct the same procedure on the opposite side"] },
+    "3": { question: "Perform Rinne's test on volunteer (5 marks )(Psychomotor domain)", options: ["Introduce himself and herself", "Explain procedure", "Set the tunning fork to vibration", "Pressing the base of the tunning fork against the mastoid process behind the ear not touching the prongs", "conduct the same procedure on the opposite side"] },
+    "4": { question: "Examine the radial pulse in the given subject in a systemic manner and write down the report", options: ["Introducing himself / herself", "Explains the procedure performed", "palpate the radial pulse", "Asses the pulse rhythm, vloume condition of vessel wall", "Normal range and applied aspects"] }
 };
 
 function startOSCE() {
