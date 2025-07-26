@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSCE Station</title>
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="styles 2.css">
-</head>
-<body>
-    <nav class="navbar">
-        <a href="#" class="logo">
-            <img src="image1.jpg" > Dr. Sugunakar
-        </a>
-        <div class="nav-links-container">
-            
-        </div>
-    </nav>
-
-    <div id="login-screen" class="screen">
-        <h2>Login</h2>
-        <label for="student-id">Student ID:</label>
-        <input type="text" id="student-id" required><br>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>OSCE Station</title>
+                <link rel="stylesheet" href="navbar.css">
+                    <link rel="stylesheet" href="styles 2.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="image1.jpg" > Dr. Sugunakar
+            </a>
+            <div class="nav-links-container">
+                
+            </div>
+        </nav>
         
-        <!-- Station selection will be hidden after the first selection -->
-        <div id="station-selection">
-            <h3>Select Station:</h3>
-            <label><input type="radio" name="station" value="1"> Station 1</label><br>
-            <label><input type="radio" name="station" value="2"> Station 2</label><br>
-            <label><input type="radio" name="station" value="3"> Station 3</label><br>
-            <label><input type="radio" name="station" value="4"> Station 4</label><br>
+        <div id="login-screen" class="screen">
+            <h2>Login</h2>
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" required><br>
+                
+                <!-- Station selection will be hidden after the first selection -->
+                <div id="station-selection">
+                    <h3>Select Station:</h3>
+                    <label><input type="radio" name="station" value="1"> Station 1</label><br>
+                    <label><input type="radio" name="station" value="2"> Station 2</label><br>
+                    <label><input type="radio" name="station" value="3"> Station 3</label><br>
+                    <label><input type="radio" name="station" value="4"> Station 4</label><br>
+                </div>
+                
+                <button onclick="startOSCE()">Start OSCE</button>
         </div>
         
-        <button onclick="startOSCE()">Start OSCE</button>
-    </div>
-
-    <div id="question-screen" class="screen" style="display: none;">
-        <h2>OSCE Station - <span id="display-station"></span></h2>
-        <p>Student ID: <span id="display-student-id"></span></p>
-        <div id="question-section">
-            <!-- Question and options will be injected here -->
+        <div id="question-screen" class="screen" style="display: none;">
+            <h2>OSCE Station - <span id="display-station"></span></h2>
+            <p>Student ID: <span id="display-student-id"></span></p>
+            <div id="question-section">
+                <!-- Question and options will be injected here -->
+            </div>
+            <button onclick="nextStudent()">Next Student</button>
+            <button onclick="promptFacultyDetails()">Save Detailed Report</button>
         </div>
-        <button onclick="nextStudent()">Next Student</button>
-        <button onclick="promptFacultyDetails()">Save Detailed Report</button>
-    </div>
-
-    <script src="script 3.js"></script>
-</body>
+        
+        <script src="script 3.js"></script>
+    </body>
+    <footer>
+        © 2025 <strong>JVS Edtek</strong>. All rights reserved.
+    </footer>
 </html>
 

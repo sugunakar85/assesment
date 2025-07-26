@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merge CSV Scores</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="OSCE/navbar.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input[type="file"] {
-            margin: 10px 0;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-links-container">
-            <!-- You can add navigation links here if needed -->
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Merge CSV Scores</title>
+                <link rel="stylesheet" href="styles.css">
+                    <link rel="stylesheet" href="OSCE/navbar.css">
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                background-color: #f9f9f9;
+                            }
+                            .container {
+                                background: white;
+                                padding: 20px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                text-align: center;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            input[type="file"] {
+                                margin: 10px 0;
+                            }
+                            button {
+                                background-color: #4CAF50;
+                                color: white;
+                                border: none;
+                                padding: 10px 20px;
+                                cursor: pointer;
+                                border-radius: 4px;
+                            }
+                            button:hover {
+                                background-color: #45a049;
+                            }
+                        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-links-container">
+                <!-- You can add navigation links here if needed -->
+            </div>
+            <a href="index.html" class="logo">
+                <img src="OSCE/JVS1.png" alt="Dr. Sugunakar">
+            </a>
+        </nav>
+        <div class="container">
+            <h2>Upload CSV Files</h2>
+            <form id="mergeForm">
+                <input type="file" id="file1" required><br>
+                    <input type="file" id="file2" required><br>
+                        <input type="file" id="file3" required><br>
+                            <input type="file" id="file4" required><br>
+                                <button type="submit">Merge and Download</button>
+                            </form>
+            <div id="output" style="margin-top: 20px;"></div>
         </div>
-        <a href="index.html" class="logo">
-            <img src="OSCE/JVS1.png" alt="Dr. Sugunakar">
-        </a>
-    </nav>
-    <div class="container">
-        <h2>Upload CSV Files</h2>
-        <form id="mergeForm">
-            <input type="file" id="file1" required><br>
-            <input type="file" id="file2" required><br>
-            <input type="file" id="file3" required><br>
-            <input type="file" id="file4" required><br>
-            <button type="submit">Merge and Download</button>
-        </form>
-        <div id="output" style="margin-top: 20px;"></div>
-    </div>
-    <script src="script 4.js"></script>
-</body>
+        <script src="script 4.js"></script>
+    </body>
+    <footer>
+        © 2025 <strong>JVS Edtek</strong>. All rights reserved.
+    </footer>
 </html>
 
 
