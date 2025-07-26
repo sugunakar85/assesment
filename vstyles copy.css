@@ -1,35 +1,22 @@
 /* Adjust question styling for long text */
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Full-height layout for sticky footer */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Flex column layout: header + content + footer */
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Don't center everything */
-    background-color: #f4f6f9;
-    color: #333;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
 
-/* Main content container that pushes footer down */
-.screen, .container {
-    flex: 1;
-    padding: 20px;
-}
+        .screen {
+            flex: 1; /* This pushes the footer to the bottom */
+            padding: 20px;
+        }
 
-/* Footer sticks to bottom */
+
 footer {
     background-color: #f1f1f1;
     text-align: center;
@@ -37,18 +24,6 @@ footer {
     font-size: 14px;
     color: #555;
 }
-
-/* Header/navbar (if needed) */
-nav.navbar {
-    background-color: #ddd;
-    padding: 10px;
-}
-
-/* Responsive question section styling */
-#question-section {
-    margin-top: 20px;
-}
-
 #question-section p {
     font-size: 1.2rem;
     font-weight: bold;
@@ -57,9 +32,9 @@ nav.navbar {
     max-width: 100%;
     text-align: justify;
     color: red;
-    margin-bottom: 10px;
 }
 
+/* Make options responsive */
 #question-section label {
     display: flex;
     align-items: center;
@@ -67,7 +42,6 @@ nav.navbar {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
-    margin: 8px 0;
 }
 
 #question-section input[type="checkbox"],
@@ -78,13 +52,63 @@ nav.navbar {
 
 /* Adjust for smaller screens */
 @media (max-width: 768px) {
-    #question-section p,
+    #question-section p {
+        font-size: 0.9rem;
+    }
+    
     #question-section label {
         font-size: 0.9rem;
     }
 }
 
-/* Input styles */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background-color: #005cbf;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Login Screen and Question Screen */
+#login-screen, #question-screen {
+    display: block;
+    margin-top: 15px;
+}
+
+/* Labels and Inputs */
 label {
     display: block;
     margin: 10px 0 5px;
@@ -99,7 +123,7 @@ input[type="text"] {
     border-radius: 4px;
 }
 
-/* Station buttons */
+/* Station Buttons */
 .station-buttons label {
     display: block;
     margin: 5px 0;
@@ -118,9 +142,9 @@ input[type="text"] {
     background-color: #e2e6ea;
 }
 
-/* Green Save Report Button */
+/* ✅ Green color for Save Detailed Report button */
 .save-report-btn {
-    background-color: #28a745;
+    background-color: #28a745; /* Green */
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -132,19 +156,40 @@ input[type="text"] {
 }
 
 .save-report-btn:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker Green */
 }
 
-/* Timer styling */
+/* Timer Styling */
 #timer {
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
-    color: purple;
+    color:purple
     transition: color 0.5s ease;
 }
 
-/* General Button Styling */
+/* Question Section */
+#question-section {
+    margin-top: 20px;
+}
+
+#question-section p {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#question-section label {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+#question-section input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* ✅ General Button Styling */
 button {
     display: inline-block;
     width: 100%;
@@ -181,7 +226,7 @@ button:disabled {
     font-weight: bold;
 }
 
-/* Mobile tweaks */
+/* Media Queries */
 @media (max-width: 480px) {
     .container {
         padding: 10px;
@@ -196,3 +241,5 @@ button:disabled {
         font-size: 0.9rem;
     }
 }
+
+
