@@ -18,25 +18,25 @@
             <img src="OSCE/JVS1.png">
         </a>
     </nav>
-
+    
     <div id="login-screen" class="screen">
         <h2>Login Station - <span id="display-station"></span></h2>
         <label for="student-id">Student ID:</label>
         <input type="text" id="student-id" required><br>
-
-        <!-- Station selection will be hidden after the first selection -->
-        <div id="station-selection">
-            <h3>Select EXAMINER:</h3>
-            <label><input type="radio" name="station" value="1"> Examiner 1</label><br>
-            <label><input type="radio" name="station" value="2"> Examiner 2</label><br>
-            <label><input type="radio" name="station" value="3"> Examiner 3</label><br>
-            <label><input type="radio" name="station" value="4"> Examiner 4</label><br>
-        </div>
-
-        <button onclick="startOSCE(); startTimer();">Start VIVA</button>
-        <button class="save-report-btn" onclick="promptFacultyDetails()">Download detailed Report</button>
+            
+            <!-- Station selection will be hidden after the first selection -->
+            <div id="station-selection">
+                <h3>Select EXAMINER:</h3>
+                <label><input type="radio" name="station" value="1"> Examiner 1</label><br>
+                <label><input type="radio" name="station" value="2"> Examiner 2</label><br>
+                <label><input type="radio" name="station" value="3"> Examiner 3</label><br>
+                <label><input type="radio" name="station" value="4"> Examiner 4</label><br>
+            </div>
+            
+            <button onclick="startOSCE(); startTimer();">Start VIVA</button>
+            <button class="save-report-btn" onclick="promptFacultyDetails()">Download detailed Report</button>
     </div>
-
+    
     <div id="question-screen" class="screen" style="display: none;">
         <span id="timer">Time: 00:00:00</span>
         <h2>Viva Station - Maximum time for selection is 1 min</h2>
@@ -46,12 +46,12 @@
         </div>
         <button onclick="nextStudent()">Save & Next Student</button>
     </div>
-
+    
     <script src="vscript.js"></script>
+    <footer>
+        © 2025 <strong>JVS Edtek</strong>. All rights reserved.
+    </footer>
 </body>
-<footer>
-    © 2025 <strong>JVS Edtek</strong>. All rights reserved.
-</footer>
 </html>
 
 

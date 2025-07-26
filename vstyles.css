@@ -1,8 +1,21 @@
 /* Adjust question styling for long text */
-.screen {
-    flex: 1; /* This pushes the footer to the bottom */
-    padding: 20px;
-}
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        .screen {
+            flex: 1; /* This pushes the footer to the bottom */
+            padding: 20px;
+        }
+
 
 footer {
     background-color: #f1f1f1;
