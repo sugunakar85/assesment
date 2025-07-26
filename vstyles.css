@@ -1,4 +1,16 @@
 /* Adjust question styling for long text */
+.screen {
+    flex: 1; /* This pushes the footer to the bottom */
+    padding: 20px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+}
 #question-section p {
     font-size: 1.2rem;
     font-weight: bold;
