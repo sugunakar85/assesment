@@ -8,11 +8,22 @@
                     <link rel="stylesheet" href="styles 2.css">
                         
                         <style>
-                              
+                              html, body {
+                                  height: 100%;
+                                  margin: 0;
+                                  padding: 0;
+                              }
+
+                              body {
+                                  display: flex;
+                                  flex-direction: column;
+                                  font-family: Arial, sans-serif;
+                              }
+
                               .screen {
-                                          flex: 1; /* This pushes the footer to the bottom */
-                                          padding: 20px;
-                                      }
+                                  flex: 1; /* This pushes the footer to the bottom */
+                                  padding: 20px;
+                              }
 
                               footer {
                                   background-color: #f1f1f1;
@@ -22,6 +33,26 @@
                                   color: #555;
                               }
 
+                              nav.navbar {
+                                  background-color: #ddd;
+                                  padding: 10px;
+                              }
+
+                              .navbar .logo {
+                                  font-weight: bold;
+                                  text-decoration: none;
+                                  color: #333;
+                              }
+
+                              .navbar img {
+                                  height: 30px;
+                                  vertical-align: middle;
+                                  margin-right: 8px;
+                              }
+
+                              button {
+                                  margin-top: 10px;
+                              }
                           </style>
     </head>
     <body>
