@@ -10,11 +10,6 @@ body {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-.screen {
-    flex: 1; /* This pushes the footer to the bottom */
-    padding: 20px;
-}
-
 footer {
     background-color: #f1f1f1;
     text-align: center;
