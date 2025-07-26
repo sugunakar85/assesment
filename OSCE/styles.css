@@ -1,4 +1,28 @@
 /* Adjust question styling for long text */
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        .screen {
+            flex: 1; /* This pushes the footer to the bottom */
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #555;
+        }
 #question-section p {
     font-size: 1.2rem;
     font-weight: bold;
