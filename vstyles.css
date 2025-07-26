@@ -139,7 +139,7 @@ input[type="text"] {
 #timer {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 30px;
     color: purple;
     transition: color 0.5s ease;
 }
@@ -184,12 +184,12 @@ button:disabled {
 /* Mobile tweaks */
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
+        padding: 20px;
     }
 
     .header {
         font-size: 1rem;
-        padding: 50px;
+        padding: 70px;
     }
 
     button {
