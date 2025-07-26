@@ -26,7 +26,7 @@ body {
 /* Main content container that pushes footer down */
 .screen, .container {
     flex: 1;
-    padding: 50px;
+    padding: 70px;
 }
 
 /* Footer sticks to bottom */
@@ -41,7 +41,7 @@ footer {
 /* Header/navbar (if needed) */
 nav.navbar {
     background-color: #ddd;
-    padding: 30px;
+    padding: 20px;
 }
 
 /* Responsive question section styling */
